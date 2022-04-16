@@ -5,8 +5,7 @@ module.exports = {
   mode: 'development',
   context: __dirname,
   entry: {
-    app: './src/app.js',
-    about: './src/about.js',
+    index: './src/main.js',
   },
   output: {
     path: path.resolve(__dirname, 'js'),
@@ -27,14 +26,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './index.html',
       filename: './index.html',
-      chunks: ['app'],
+      chunks: ['index'],
     }),
-    new HtmlWebpackPlugin({
-      template: './src/about.html',
-      filename: './about.html',
-      chunks: ['about'],
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: './src/about.html',
+    //   filename: './about.html',
+    //   chunks: ['about'],
+    // }),
   ],
 };
