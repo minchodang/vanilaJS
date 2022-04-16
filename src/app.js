@@ -1,7 +1,5 @@
-import '@babel/polyfill';
-import hello from './hello';
-import world from './world';
-import css from './style.css';
+function App() {
+  return alert('안녕하쇼');
+}
 
-document.querySelector('#root').innerHTML = hello + ' ' + world;
-console.log('css', css);
+export default App;
