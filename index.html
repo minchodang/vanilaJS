@@ -2,11 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Title</title>
+    <title>spa-router-example</title>
   </head>
   <body>
-    <div id="app"></div>
+    <!--BrowserHistory-->
+    <div>
+      <!--Link-->
+      <div class="link-container">
+        <div class="link-box">
+          <span class="history" route="/about">History About</span>
+        </div>
 
-    <script type="module" src="src/main.js"></script>
+        <div class="link-box">
+          <span class="history" route="/home">History Home</span>
+        </div>
+      </div>
+
+      <!--Content-->
+      <div id="history-app"></div>
+    </div>
+
+    <!-- <hr /> -->
+
+    <!--HashHistory-->
+    <!-- <div>
+  
+      <div class="link-container">
+        <div class="link-box">
+          <a class="hash" href="#about">Hash About</a>
+        </div>
+
+        <div class="link-box">
+          <a class="hash" href="#home">Hash Home</a>
+        </div>
+      </div>
+
+      <div id="hash-app"></div>
+    </div> -->
   </body>
 </html>
