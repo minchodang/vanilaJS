@@ -1,16 +1,34 @@
-var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+var { resolve } = require('path');
 
 module.exports = {
   mode: 'development',
   context: __dirname,
   entry: {
-    index: './src/main.js',
+    router: './router.js',
+    app: './index.js',
   },
   output: {
-    path: path.resolve(__dirname, 'js'),
+    path: resolve(__dirname, './dist'),
     filename: '[name].js',
   },
+  devServer: {
+    historyApiFallback: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+    }),
+    new MiniCssExtractPlugin({ filename: 'app.css' }),
+    new CleanWebpackPlugin({
+      cleanAfterEveryBuildPatterns: ['dist'],
+    }),
+  ],
+
   module: {
     rules: [
       {
@@ -19,21 +37,13 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
+        test: /\.hbs$/,
+        loader: 'handlebars-loader',
+      },
+      {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: './index.html',
-      chunks: ['index'],
-    }),
-    // new HtmlWebpackPlugin({
-    //   template: './src/about.html',
-    //   filename: './about.html',
-    //   chunks: ['about'],
-    // }),
-  ],
 };
