@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-var { resolve } = require('path');
+var { resolve, dirname } = require('path');
 
 module.exports = {
   mode: 'development',
@@ -16,6 +16,9 @@ module.exports = {
     filename: '[name].js',
   },
   devServer: {
+    port: 9000,
+    // contentBase: resolve(__dirname, 'html'),
+    // port: 8085,
     historyApiFallback: true,
   },
   plugins: [

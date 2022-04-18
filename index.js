@@ -1,6 +1,7 @@
 // css
 require('./src/styles/style.css');
 import './src/styles/about.css';
+import './src/styles/home.css';
 
 // router
 const {
